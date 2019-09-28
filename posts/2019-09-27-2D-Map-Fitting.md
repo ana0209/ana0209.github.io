@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hank Quinlan, Horrible Cop, Launches Site"
+title: "2D Map Fitting"
 date: 2019-09-27
 ---
 
