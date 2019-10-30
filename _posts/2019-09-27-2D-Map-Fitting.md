@@ -7,7 +7,7 @@ date: 2019-09-27
 This project arose when I was trying to compare several 2D lidar based SLAM algorithms. You can find the code here https://github.com/ana0209/map-fitting-2D. I was having a robot move around a part of my home with a lidar mounted on top of it. I tested gmapping, Cartographer SLAM and Karto SLAM. I had generated the ground truth map manually. I wanted to fit the calculated maps by each of the algorithms to the ground truth map. It looked simple, but I could not find any ready made, accurate code out there. I found this project: https://github.com/saeedghsh/Map-Alignment-2D that looks interesting but it did not work for all of my maps. I decided to take some ideas from it and write my own code. This is the result.
 
 
-### Approach
+# Approach
 
 In order to calculate a rigid transformation from one image to another we need 3 pairs of matching points. In this work I assume that a floorplan cannot be reflected which reduces the number of point pairs we need to two. This assumption is made because I think that a reflected floorplan is not the same floorplan. For instance, if we have an apartment that has a bathroom to the right of the front door upon entering it and another apartment with the bathroom to the left to the front door upon entrance, we cannot say that these two apartments have the same layout. Floorplans of the same space can be matched by using scaling, rotation and translation only. 
 
@@ -47,7 +47,7 @@ First, the corners are calculated for both images (or in case of ground truth, t
 The above pseudocode skips some implementation details and optimizations. They can be found in the subsequent sections.
 
 
-#### Finding corners
+## Finding corners
 
 I tried using Harris corner detector in OpenCV (link), however it was very dependent on the parameters used and it would not work across different maps. 
 
@@ -87,21 +87,21 @@ calculate_corners(floorplan_image):
 The reason the corner is not necessarily an endpoint of the two linesegments is to account for the cases where the two segments are really close to each other and satisfy the angle condition to make a corner but they do not share exactly the same endpoint due to imperfections in the map image or the line segment detection. 
 
 
-#### Optimizing the number of comparisons
+## Optimizing the number of comparisons
 
 If we assume that the number of corners in the plan is *n* then the code runs in *O(n^4)* time. This is because each image has *n^2* corner pairs that need to be fitted to *n^2* corner pairs in the other image. This is less than ideal running time and can cause the code to run slowly even for small maps. For this reason, I skip some of the fittings when I can assume that they will be incorrect anyway by using heuristics.
 
 First, corners that are too close to each other are not used to determine the transform because the transform determined that way would be imprecise. Next, we calculate the scale factor from the line segments lengths before calculating rest of the transform. If the area of the floorplan we are fitting adjust by the scale factor is significantly smaller than the ground truth image, we discard the corner pairs correspondence. There is an implicit assumption here that the ground truth image is tightly fitted around the plan itself. In case there is no noisy pixels far outside of the ground truth plan, you can use crop_floorplan function in the github repo (link). This will give you a tightly bound ground truth floorplan.
 
 
-##### Same scale optimization
+### Same scale optimization
 
 In some cases we know that the ground truth map and the floorplan to be fitted have the same scale. In general we should know the scale of the ground truth and the map resolution of the SLAM calculated maps is also known. In that case, we can easily discard all the corner pairs correspondences where the corner distance in one image is very diffent from the distance between the corners in the other image. This additionally reduces the runtime significantly.
 
 This could be expanded to take in a known scale (even if it is not 1) and to make a similar check, discarding corner pair correspondences where the distances' ratio is not close to the input scale. This is left for future work. One way to go around this with the code as is is to resize the ground truth plan to the scale of the floorplan or vice versa before running the fitting algorithm and then using the same scale option in the code.
 
 
-#### Fitness score
+## Fitness score
 
 Once transformation is calculated, a fitness score is obtained between the ground truth and the transformed map. Here is the pseudocode for calculating the fitness score:
 
@@ -120,7 +120,7 @@ Ground truth map distance map is calculated that contains distance to the closes
 [[ground truth map and its distance map]]
 
 
-### Examples of results
+# Examples of results
 
 Here are some examples of fitting results:
 
@@ -131,7 +131,7 @@ The images above showed fitting examples for correct maps. Here is an example of
 [[example 2]]
 
 
-### Conclusion and future work
+# Conclusions and future work
 
 This code has been tested only on a small set of maps. One of the major future work points is having it tested on a large set of maps.
 
