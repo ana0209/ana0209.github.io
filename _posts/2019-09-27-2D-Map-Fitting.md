@@ -105,7 +105,7 @@ This could be expanded to take in a known scale (even if it is not 1) and to mak
 ## Finding the transform
 
 Transform is found piecewise. First, scaling factor is determined by dividing the distance between the corners in one image with the distance of the corners in the evaluated pair in the other image.
-Next, rotation matrix is calculated using an OpenCV function cv2.getRotationMatrix2D. Translation is calculated by subtracting the coordinates of one of the corners in the first image from its scaled and rotated counter part. Rotation and scaling are applied together in a single matrix, while the translation is applied using subtraction on the scaled and rotated points. This is done because it was faster to apply translation this way than to combine it with scaling and rotation in a single matrix and to use that single matrix for the transform.
+Next, rotation matrix is calculated using an OpenCV function [cv2.getRotationMatrix2D](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#gafbbc470ce83812914a70abfb604f4326). Translation is calculated by subtracting the coordinates of one of the corners in the first image from its scaled and rotated counter part. Rotation and scaling are applied together in a single matrix, while the translation is applied using subtraction on the scaled and rotated points. This is done because it was faster to apply translation this way than to combine it with scaling and rotation in a single matrix and to use that single matrix for the transform.
 
 
 ## Fitness score
