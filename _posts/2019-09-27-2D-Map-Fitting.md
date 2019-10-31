@@ -7,7 +7,7 @@ date: 2019-09-27
 This project arose when I was trying to compare several 2D lidar based SLAM algorithms. I was having a robot move around a part of my home with a lidar mounted on top of it. I tested gmapping, Cartographer SLAM and Karto SLAM. I had generated the ground truth map manually. I wanted to fit the calculated maps by each of the algorithms to the ground truth map. It looked simple, but I could not find any ready made, accurate code out there. I found this project: https://github.com/saeedghsh/Map-Alignment-2D that looks interesting but it did not work for all of my maps. I decided to take some ideas from it and write my own code. The result is in a [github repo](https://github.com/ana0209/map-fitting-2D). Here I explain the approach I took and why. I also analyze its shortcomings and talk about future work.
 
 
-# Approach
+## Approach
 
 In order to calculate a rigid transformation from one image to another we need 3 pairs of matching points. In this work I assume that a floorplan cannot be reflected which reduces the number of point pairs we need to two. This assumption is made because the reflected floorplan is not the same floorplan. For instance, if we have an apartment that has a bathroom to the right of the front door upon entering it and another apartment with the bathroom to the left to the front door upon entrance, we cannot say that these two apartments have the same layout. Floorplans of the same space can be matched by using only scaling, rotation and translation. 
 
@@ -48,7 +48,7 @@ First, the corners are calculated for both images. In my case, as I had created 
 The above pseudocode skips some implementation details and optimizations. They can be found in the subsequent sections.
 
 
-## Finding the corners
+### Finding the corners
 
 I tried using [Harris corner detector in OpenCV](https://docs.opencv.org/3.4/dd/d1a/group__imgproc__feature.html#gac1fc3598018010880e370e2f709b4345), however it was very dependent on the parameters used and it would not work across different maps with the same set of parameters. 
 
@@ -88,27 +88,27 @@ calculate_corners(floorplan_image):
 The reason the corner is not necessarily an endpoint of the two linesegments is to account for the cases where the two segments are really close to each other and satisfy the angle condition to make a corner but they do not share exactly the same endpoint due to imperfections in the map image or the line segment detection. 
 
 
-## Optimizing the number of comparisons
+### Optimizing the number of comparisons
 
 If we assume that the number of corners in the plan is *n* then the code runs in *O(n^4)* time. This is because each image has *n^2* corner pairs that need to be fitted to *n^2* corner pairs in the other image. This is less than ideal running time and can cause the code to run slowly even for small maps. For this reason, I skip some of the fittings when I can assume that they will be incorrect by using heuristics.
 
 First, corners that are too close to each other are not used to determine the transform because the transform determined that way would be imprecise. Next, a scale factor from the corner pair distances is calculated before moving on to the rest of the transform. If the area of the floorplan we are fitting adjusted by the scale factor is significantly smaller than the ground truth image, we discard the corner pairs correspondence. There is an implicit assumption here that the ground truth image is tightly fitted around the plan itself. In case there is no noisy pixels far outside of the ground truth plan, you can use [crop_floorplan](https://github.com/ana0209/map-fitting-2D/blob/master/source/crop_floorplan.py) function in the github repo. This will give you a tightly bound ground truth floorplan.
 
 
-### Same scale optimization
+#### Same scale optimization
 
 In some cases we know that the ground truth map and the floorplan to be fitted have the same scale. In general we should know the scale of the ground truth (because it is ground truth!). The map resolution of the SLAM calculated maps is also known. In that case, we can easily discard all the corner pairs correspondences where the corner distance in one image is very diffent from the distance between the corners in the other image. This additionally reduces the runtime significantly.
 
 This could be expanded to take in a known scale (even if it is not 1) and to make a similar check, discarding corner pair correspondences where the distances' ratio is not close to the input scale. This is left for future work. One way to go around this with the code as is is to resize the ground truth plan to the scale of the floorplan or vice versa before running the fitting algorithm and then using the same scale option in the code.
 
 
-## Finding the transform
+### Finding the transform
 
 Transform is found piecewise. First, scaling factor is determined by dividing the distance between the corners in one image with the distance of the corners in the evaluated pair in the other image.
 Next, rotation matrix is calculated using an OpenCV function [cv2.getRotationMatrix2D](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#gafbbc470ce83812914a70abfb604f4326). Translation is calculated by subtracting the coordinates of one of the corners in the first image from its scaled and rotated counter part. Rotation and scaling are applied together in a single matrix, while the translation is applied using subtraction on the scaled and rotated points. This is done because it was faster to apply translation this way than to combine it with scaling and rotation in a single matrix and to use that single matrix for the transform.
 
 
-## Fitness score
+### Fitness score
 
 Once transformation is calculated, a fitness score is obtained between the ground truth and the transformed map. Here is the pseudocode for calculating the fitness score:
 
@@ -127,7 +127,7 @@ Ground truth map distance map is calculated at the beginning. It contains distan
 ![dist_map_figure](https://user-images.githubusercontent.com/51337969/67910514-3ceaa480-fb40-11e9-81a5-e6026950b58c.png)
 
 
-# Examples of results
+## Examples of results
 
 Here are some examples of fitting results:
 
@@ -138,7 +138,7 @@ The images above showed fitting examples for correct maps. Here is an example of
 ![figure-bad-floorplan](https://user-images.githubusercontent.com/51337969/67909582-f0ea3080-fb3c-11e9-8206-59d0176ac8c5.png)
 
 
-# Conclusions and future work
+## Conclusions and future work
 
 This code has been tested only on a small set of maps. One of the major future work points is having it tested on a large set of maps.
 
