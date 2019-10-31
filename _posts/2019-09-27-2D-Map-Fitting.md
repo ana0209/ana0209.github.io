@@ -131,11 +131,11 @@ Ground truth map distance map is calculated at the beginning. It contains distan
 
 Here are some examples of fitting results:
 
-[[example 1]]
+![figure-good-floorplan](https://user-images.githubusercontent.com/51337969/67909587-f5164e00-fb3c-11e9-98d0-ea96096d26d3.png)
 
 The images above showed fitting examples for correct maps. Here is an example of a poor map that was still fitted reasonably by the code:
 
-[[example 2]]
+![figure-bad-floorplan](https://user-images.githubusercontent.com/51337969/67909582-f0ea3080-fb3c-11e9-8206-59d0176ac8c5.png)
 
 
 # Conclusions and future work
