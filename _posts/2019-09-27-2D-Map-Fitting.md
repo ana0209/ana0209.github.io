@@ -124,7 +124,7 @@ calculate_fitness_score(distance_map, transformed_boundary_points):
 
 Ground truth map distance map is calculated at the beginning. It contains distance from every point to the closest boundary point in the ground truth map (example images). This way the fitness score calculation is sped up since all the possible distances are known before hand. Once the floorplan is transformed, one simply picks the distances from the map where the transformed boundary points of the floorplan fall and adds them up to get the fitness score before averaging the score out.
 
-[[ground truth map and its distance map]]
+![dist_map_figure](https://user-images.githubusercontent.com/51337969/67910514-3ceaa480-fb40-11e9-81a5-e6026950b58c.png)
 
 
 # Examples of results
