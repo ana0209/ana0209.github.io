@@ -70,3 +70,6 @@ pre {
     display: block;
     word-wrap: break-word;
 }
+td, th {
+    border: 1px solid grey
+}
