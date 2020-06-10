@@ -74,4 +74,4 @@ td, th {
     border: 1px solid grey
 }
 
-@media (max-width: 10000px) {html {font-size:3em}}
+@media (max-width: 640px) {html {font-size:2em}}
