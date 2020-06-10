@@ -3,3 +3,4 @@ markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 plugins:
   - jekyll-seo-tag
+description: A blog diving deep in select topics in Robotics, Numerical Analysis and Computer Vision
