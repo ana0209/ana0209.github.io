@@ -3,40 +3,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
     <loc>https://ana0209.github.io</loc>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
   	<loc>https://ana0209.github.io/blog</loc>
   	<priority>0.6</priority>
+  	<changefreq>monthly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/blog/2020/06/04/Linear-Least-Squares-Problem-Conditioning-with-Proofs</loc>
 	  <lastmod>2020-06-05</lastmod>
 	  <priority>0.8</priority>
+	  <changefreq>yearly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/blog/2020/06/03/Theorems-and-Proofs-Regarding-Product-and-Difference-of-Orthogonal-Projectors</loc>
 	  <lastmod>2020-06-03</lastmod>
 	  <priority>0.8</priority>
+	  <changefreq>yearly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/pdfs/Linear_Least_Squares_Problem_Conditioning.pdf</loc>
 	  <lastmod>2020-06-05</lastmod>
 	  <priority>0.9</priority>
+	  <changefreq>yearly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/pdfs/Proofs_for_Stewart_1975.pdf</loc>
 	  <lastmod>2020-06-03</lastmod>
 	  <priority>0.9</priority>
+	  <changefreq>yearly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/blog/2019/12/26/Matrix-Triangularization-Using-Givens-Rotations</loc>
 	  <lastmod>2019-12-26</lastmod>
 	  <priority>0.8</priority>
+	  <changefreq>yearly</changefreq>
   </url>
   <url>
 	  <loc>https://ana0209.github.io/blog/2019/10/31/2D-Map-Fitting</loc>
 	  <lastmod>2019-10-31</lastmod>
 	  <priority>0.8</priority>
+	  <changefreq>yearly</changefreq>
   </url>
 </urlset>
