@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://ana0209.github.io</loc>
+  </url>
+  <url>
+  	<loc>https://ana0209.github.io/blog</loc>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/blog/2020/06/04/Linear-Least-Squares-Problem-Conditioning-with-Proofs</loc>
+	  <lastmod>2020-06-05</lastmod>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/blog/2020/06/03/Theorems-and-Proofs-Regarding-Product-and-Difference-of-Orthogonal-Projectors</loc>
+	  <lastmod>2020-06-03</lastmod>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/pdfs/Linear_Least_Squares_Problem_Conditioning.pdf</loc>
+	  <lastmod>2020-06-05</lastmod>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/pdfs/Proofs_for_Stewart_1975.pdf</loc>
+	  <lastmod>2020-06-03</lastmod>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/blog/2019/12/26/Matrix-Triangularization-Using-Givens-Rotations</loc>
+	  <lastmod>2019-12-26</lastmod>
+  </url>
+  <url>
+	  <loc>https://ana0209.github.io/blog/2019/10/31/2D-Map-Fitting</loc>
+	  <lastmod>2019-10-31</lastmod>
+  </url>
+</urlset>
