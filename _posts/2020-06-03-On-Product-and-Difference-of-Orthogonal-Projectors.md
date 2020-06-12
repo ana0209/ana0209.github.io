@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Theorems and Proofs Regarding Product and Difference of Orthogonal Projectors"
+title: "On Product and Difference of Orthogonal Projectors"
 date: 2020-06-03
 ---
 
