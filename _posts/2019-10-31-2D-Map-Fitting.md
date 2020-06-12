@@ -22,23 +22,25 @@ ground_truth_corners = calculate_corners(ground_truth_image)
 floorplan_corners = calculate_corners(floorplan_image)
 
 boundary_points = get_boundary_points(floorplan_image)
-
+ 
 current_fitness_score = Inf
 final_transform = NULL
 
 foreach pair1 in pairs_of(gt_corners):
-	foreach pair2 in pairs_of(floorplan_corners):
-		if pair_can_be_skipped(pair1, pair2): # See Optimizing the number of comparisons for details
-			continue
+    foreach pair2 in pairs_of(floorplan_corners):
+        if pair_can_be_skipped(pair1, pair2): 
+		    # See Optimizing the number of comparisons for details
+		    continue
 
-		T = calculate_transform(pair1, pair2)
-		transformed_boundary_points = transform(boundary_points, T)
+        T = calculate_transform(pair1, pair2)
+        transformed_boundary_points = transform(boundary_points, T)
 
-		fitness_score = calculate_fitness_score(distance_map, transformed_boundary_points)
+        fitness_score = calculate_fitness_score(distance_map, \\ 
+            transformed_boundary_points)
 
-		if fitness_score < current_fitness_score:
-			final_transform = T
-			fitness_score = current_fitness_score
+        if fitness_score < current_fitness_score:
+            final_transform = T
+            fitness_score = current_fitness_score
 
 return final_transform
 ```
@@ -62,27 +64,27 @@ Here is pseudocode for finding corners:
 
 ```
 calculate_corners(floorplan_image):
-	line_segments = calculate_linesegments(floorplan_image)
-	corners = []
-	for i in [0, size(line_segments) - 1]:
-		l1 = line_segments[i]
-		for j in [i+1, size(line_segments) - 1]:
-			l2 = line_segments[j]
+    line_segments = calculate_linesegments(floorplan_image)
+    corners = []
+    for i in [0, size(line_segments) - 1]:
+        l1 = line_segments[i]
+        for j in [i+1, size(line_segments) - 1]:
+            l2 = line_segments[j]
 
-			l1_end1, l1_end2 = vertices(l1)
-			l2_end1, l2_end2 = vertices(l2)
+            l1_end1, l1_end2 = vertices(l1)
+            l2_end1, l2_end2 = vertices(l2)
 
-			if 45 < angle(l1, l2) < 135:
-				if close(l1_end1, l2_end1):
-						corners.add((l1_end1 + l2_end1)/2)
-				elif close(l1_end1, l2_end2): 
-					corners.add((l1_end1 + l2_end2)/2)
-				elif close(l1_end2, l2_end1): 
-					corners.add((l1_end2 + l2_end1)/2)
-				elif close(l1_end2, l2_end2):
-					corners.add((l1_end2 + l2_end2)/2)
+            if 45 < angle(l1, l2) < 135:
+                if close(l1_end1, l2_end1):
+                    corners.add((l1_end1 + l2_end1)/2)
+                elif close(l1_end1, l2_end2): 
+                    corners.add((l1_end1 + l2_end2)/2)
+                elif close(l1_end2, l2_end1): 
+                    corners.add((l1_end2 + l2_end1)/2)
+                elif close(l1_end2, l2_end2):
+                    corners.add((l1_end2 + l2_end2)/2)
 
-	return corners
+    return corners
 ```
 
 The reason the corner is not necessarily an endpoint of the two linesegments is to account for the cases where the two segments are really close to each other and satisfy the angle condition to make a corner but they do not share exactly the same endpoint due to imperfections in the map image or the line segment detection. 
@@ -116,10 +118,10 @@ Once transformation is calculated, a fitness score is obtained between the groun
 distance_map = get_distance_map(ground_truth_image)
 
 calculate_fitness_score(distance_map, transformed_boundary_points):
-	fitness_score = sum(distance_map[transformed_boundary_points[0,:], transformed_boundary_points[1,:]])
-	fitness_score /= size(transformed_boundary_points[0,:])
+    fitness_score = sum(distance_map[transformed_boundary_points[0,:], transformed_boundary_points[1,:]])
+    fitness_score /= size(transformed_boundary_points[0,:])
 
-	return fitness_score
+    return fitness_score
 ```
 
 Ground truth map distance map is calculated at the beginning. It contains distance from every point to the closest boundary point in the ground truth map (example images). This way the fitness score calculation is sped up since all the possible distances are known before hand. Once the floorplan is transformed, one simply picks the distances from the map where the transformed boundary points of the floorplan fall and adds them up to get the fitness score before averaging the score out.
