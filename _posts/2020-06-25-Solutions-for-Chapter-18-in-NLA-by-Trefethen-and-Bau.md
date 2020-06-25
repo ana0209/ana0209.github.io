@@ -75,10 +75,11 @@ The incoming light ray falls on a surface at some angle $\beta$ to the surface n
 
 This means that a light ray from the house that falls in the middle of the lake on a piece of water with no ripples will reflect so it falls in the observers eyes, since both the light source and the observer are at the same height. However, if the reflecting surface is at some angle, then the distance between the light source and the and the reflecting surface needs to be adjusted as is depicted below:
 
+![figure-2](https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-2.png)
 
 We see from the figure xx that if the reflecting surface is angled with the sharper angle turned towards the light source that it needs to be closer to the light source than the observer in order to reach the observer at the right height. The situation is reversed when the more oblique angle of the reflecting surface is turned to the light source: then the surface should be closer to the observer than the light source. Also, as visible from the figure above xx, for the same narrow angle $\alpha$, the two situations are symmetrical.
 
-We are going to follow the assumption that the perceived dimension of the object is proportional to the angle the endpoints of the object subtend at the eye (See xxx). According to xx, the perceived dimension of the object is $$n\cdot\gamma$$ where $$\gamma$$ is the mentioned subtended angle. 
+We are going to follow the assumption that the perceived dimension of the object is proportional to the angle the endpoints of the object subtend at the eye (See [link](https://entokey.com/the-human-eye-as-an-optical-system/) and [link](https://en.wikipedia.org/wiki/Visual_angle#The_retinal_image_and_visual_angle)). According to xx, the perceived dimension of the object is $$n\cdot\gamma$$ where $$\gamma$$ is the mentioned subtended angle. 
 
 Here we will calculate the ratio of width and length of the vertical streak as perceived by the observer and not as the ratio of width and height as they are at the water surface at the points where the light we see is reflected.
 
