@@ -37,7 +37,7 @@ $$\begin{eqnarray}\|A^+\delta b\|_2 &=& \|V \Sigma^+U^*U\begin{bmatrix}0 \\ 1 \\
 &=&\|\Sigma^+ \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \frac{1}{\sigma_2}\|\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \|A^+\|_2\|U \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \|A^+\|_2\|\delta b\|_2 
 \end{eqnarray}$$
 
-Above we use the fact that $$\| \cdot \|_2$$ norm is unitarily invariant (the norm of the vector does not change when it is multiplied by a unitary matrix). The key here was to set a non-zero value in the n-th entry of the vector $U$ is multiplied by. That way we select the $$1/\sigma_n=1/\sigma_2$$ value from $\Sigma^+$$.
+Above we use the fact that $$\| \cdot \|_2$$ norm is unitarily invariant (the norm of the vector does not change when it is multiplied by a unitary matrix). The key here was to set a non-zero value in the n-th entry of the vector $U$ is multiplied by. That way we select the $$1/\sigma_n=1/\sigma_2$$ value from $$\Sigma^+$$.
 
 When using the above described perturbation this error was obtained: $$err_{b \rightarrow x}=54775.17704$$.
 
