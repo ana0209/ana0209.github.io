@@ -67,15 +67,27 @@ If many variables are used, some of them may be highly correlated. For example, 
 
 ### Exercise 18.3.
 
-(a) This solution was based on [[2]](#2). Let us simplify the problem by assuming that at every point on the water surface we have ripples angled in all direction. Let $$\alpha$$ be the maximum angle at which the ripples curve. 
+(a) This solution is based on [[2]](#2). 
+
+Let us simplify the problem by assuming that at every point on the water surface we have ripples angled in all direction. Let $$\alpha$$ be the maximum angle at which the ripples curve. 
 
 The incoming light ray falls on a surface at some angle $\beta$ to the surface normal and reflects along a line that forms the same angle with the normal but on the other side of it in the plane made by the incoming ray and the normal. See figure below:
 
-![figure-1](https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-1.png)
+
+<p align="center">
+  <img alt="Light reflection at the middle of the lake" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-1.png">
+  <br>
+    <em>Figure 1.</em>
+</p>
+
 
 This means that a light ray from the house that falls in the middle of the lake on a piece of water with no ripples will reflect so it falls in the observers eyes, since both the light source and the observer are at the same height. However, if the reflecting surface is at some angle, then the distance between the light source and the and the reflecting surface needs to be adjusted as is depicted below:
 
-![figure-2](https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-2.png)
+<p align="center">
+  <img alt="Light reflecting at an angle" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-2.png">
+  <br>
+    <em>Figure 2.</em>
+</p>
 
 We see from the figure xx that if the reflecting surface is angled with the sharper angle turned towards the light source that it needs to be closer to the light source than the observer in order to reach the observer at the right height. The situation is reversed when the more oblique angle of the reflecting surface is turned to the light source: then the surface should be closer to the observer than the light source. Also, as visible from the figure above xx, for the same narrow angle $\alpha$, the two situations are symmetrical.
 
@@ -106,6 +118,11 @@ From \ref{gamma-1, gamma-2} we see that the angle subtended at the eye that enco
 
 Width of the streak varies at different points. We will use the point in the middle for our calculations. The actual width on the lake in the middle is the biggest width of the streak*. However, according to [[2]](#2) that is not the point of the maximum perceived length. However, that is the point they use to caculate the width and so will I, because it renders itself to easy calculation of the subtended angle. 
 
+<p align="center">
+  <img alt="Width of the streak at the middle of the lake" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-3.png">
+  <br>
+    <em>Figure 3.</em>
+</p>
 
 In the middle of the lake, even at a point away from the plane perpendicular to the lake that contains the observer and the light, the light ray has an equidistant path from the source to the point and from the point to the observer. The reflecting surface is inclined in order to account for the needed change in the direction of the travel. The plane is rotated over the axis passing through points $$T_1$$ and $$T_2$$ in figure xx. In the figure yy we show the inclination of the reflecting surface which is symmetric on the two sides and an observer (or light source) projected onto a plane passing through the middle of the lake and being perpendicular on the axis of rotation $$T_1T_2$$. The two sides of the depicted triangle $$V_1O'$$ and $$V_2O'$$ are positioned on the normal to the reflecting plane at the point of the light reflection. From the image we see that the angle $$\angle V_1O'P=\alpha$$. Therefore the physical width of the streak on the lake is $$2 h\tan \alpha$$. 
 
