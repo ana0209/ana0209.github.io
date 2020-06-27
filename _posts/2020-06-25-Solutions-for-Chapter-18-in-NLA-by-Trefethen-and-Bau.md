@@ -31,8 +31,6 @@ I do not provide solutions for parts (a) and (b). I have calculated answers (c)-
 The perturbation $\delta b$ that achieves relative error of x equal to the condition number $\kappa_{b \rightarrow x}$ is one where $$\|A^+\delta b\|_2=\|A^+\|_2\|\delta b\|_2$$. We now construct that kind of $\delta b$. 
 
 We know that $$\|A^+\|_2=1/\sigma_n$$ where $$\sigma_n$$ is the n-th and smallest singular value of $A$. We also know that $$A^+=V\Sigma^+U^*$$, with $$A=U\Sigma V^*$$ being a singular value decomposition of A (see [Wikipedia entry on Moore-Penrose pseudoinverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse#Singular_value_decomposition_(SVD))). $\Sigma^+$ is a diagonal matrix with i-ith diagonal entries being $1/\sigma_i$ for non-zero singular values $\sigma_i$ of $A$ and zero elsewhere. In our particular case $n=2$ and $m=3$ so $$\sigma_n=\sigma_2$$. If we choose $\delta b=U[0 \; 1 \; 0]'$ we get:
-
-
 $$\begin{eqnarray}\|A^+\delta b\|_2 &=& \|V \Sigma^+U^*U\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ 
 &=&\|\Sigma^+ \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \frac{1}{\sigma_2}\|\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \|A^+\|_2\|U \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\|_2 \nonumber \\ &=& \|A^+\|_2\|\delta b\|_2 
 \end{eqnarray}$$
@@ -44,7 +42,6 @@ When using the above described $$\delta b$$, I obtained relative error $$err_{b 
 While the previous two errors achieved the condition number exactly, the following two will do so only approximately.
 
 $$y$$ only depends on the $range(A)$. From [[1]](#1), *Tilting the range section* we see that the biggest tilt of the $range(A)$ for some fixed value of $$\|\delta A\|_2$$ is achieved when $$\delta A=\delta p \cdot v_n$$ where $v_n$ is the right singular vector of $A$ associated with its smallest singular value $\sigma_n$ which in the case of this problem is $\sigma_2$. $\delta p$ is a vector orthogonal to the range of $A$. I calculated $\delta p$ as:
-
 $$\begin{eqnarray}
 \delta p = (I-AA^+)\begin{bmatrix}1 \\ 1 \\ 0\end{bmatrix}/10^6
 \end{eqnarray}$$
@@ -52,7 +49,6 @@ $$\begin{eqnarray}
 And the final perturbation of $$A$$ is $$\delta A=\delta p v_2$$ where $v_2$ is obtained as the second column of $V$ from $A=U \Sigma V^*$.
 
 The error obtained using this perturbation was $err_{A \rightarrow y}=34639.57287$. The difference between $err_{A \rightarrow y}$ and $\kappa_{A \rightarrow y}$ can be explained by the relationship between $$y=[2 \; 2.0001 \; 2.0001]'$$ and the second left singular vector $$u_2$$. Let us look at the left singular vectors of $A$ in $U$:
-
 $$\begin{eqnarray}U=\begin{bmatrix}-5.77e-01 & 8.17e-01 & -8.76e-17 \\ -5.77e-01 & -4.08e-01 & -7.07e-01 \\ -5.77e-01 & -4.08e-01 & 7.07e-01 \end{bmatrix}\end{eqnarray}$$
 
 We see that $y$ is approximately aligned with the first left singular vector. This means it is roughly perpendicular to the plane in which the tilt for the described perturbation is made. As explained in [[1]](#1) this reduces the error by a factor of $\sin \theta$. Indeed we get $$err_{A \rightarrow y} / \sin \theta = 54771.06913$$ which is very close to $$\kappa_{A \rightarrow y}$$.
@@ -97,20 +93,16 @@ Here we will calculate the ratio of width and length of the vertical streak as p
 We are going to follow the assumption that the perceived dimension of the object is proportional to the angle the endpoints of the object subtend at the eye (See [here](https://entokey.com/the-human-eye-as-an-optical-system/) and [here](https://en.wikipedia.org/wiki/Visual_angle#The_retinal_image_and_visual_angle)). The perceived dimension of the object is $$n\cdot\gamma$$ where $$\gamma$$ is the subtended angle and $$n$$ is the distance from nodal points to the retina of the eye: something like the diameter of the eyeball. 
 
 What limits the length of the vertical streak is the maximum angle $$\alpha$$ at which the water ripples (see [Figure 2.](#figure-2)). We need to calculate the angle $$\gamma$$ from [Figure 2.](#figure-2) because that is the angle that is subtended at the eye of the observer for the length of the vertical streak of light:
-
-
 $$\begin{eqnarray}
-\large{\alpha_1=\frac{\pi}{2}-\beta_1-\alpha} \nonumber \\
-\large{\alpha_2=\frac{\pi}{2}+\alpha-\beta_1} \nonumber \\
-\large{\alpha_2-\alpha_1=2\alpha} 
+\alpha_1=\frac{\pi}{2}-\beta_1-\alpha \nonumber \\
+\alpha_2=\frac{\pi}{2}+\alpha-\beta_1 \nonumber \\
+\alpha_2-\alpha_1=2\alpha 
 \label{eq:gamma-1}
 \end{eqnarray}$$
-
-
 $$\begin{eqnarray}
-\large{\alpha_1+\gamma+\pi-\alpha_2=\pi} \nonumber \\
-\large{\gamma=\alpha_2-\alpha_1} \\
-\large{\gamma=2\alpha}
+\alpha_1+\gamma+\pi-\alpha_2=\pi \nonumber \\
+\gamma=\alpha_2-\alpha_1 \\
+\gamma=2\alpha
 \label{eq:gamma-2}
 \end{eqnarray}$$
 
@@ -129,9 +121,8 @@ Width of the streak varies at different points. We will use the point in the mid
 In the middle of the lake, even at some point away from the plane $$SOT_2$$, the light ray has an equidistant path from the source to that point and from that point to the observer. The reflecting surface at the point must be inclined in order to account for the needed change in the direction of the travel. The reflecting surface is rotated around the axis that is parallel to the segment $$T_1T_2$$ ([Figure 2.](#figure-2)) and passes through the point of reflection. In the [Figure 3.](#figure-3) we show the inclination of the reflecting surface which is symmetric on the two sides and an observer (or light source) projected onto a plane perpendicular to $$T_1T_2$$ passing through point $$M$$ in the middle of the lake (see [Figure 2.](#figure-2) for point locations). The two sides of the depicted triangle $$P_1O'$$ and $$P_2O'$$ are positioned on the normals to the reflecting planes. $$P_1$$ and $$P_2$$ are points of the light reflection. From the image we see that the angles $$\angle P_1O'M=\angle MO'P_2=\alpha$$. Therefore the actual width of the streak on the lake is $$2 h\tan \alpha$$. 
 
 The angle subtended at the eye for the width of the streak is $$\angle P_1OP_2=\delta$$. We know that the length $$\overline{MO}=\sqrt{h^2+l^2}$$ with $$h=50m$$ and $$2l=1000m$$. By using the calculated streak width we get $$\tan (\delta/2)=h \tan \alpha/\sqrt{h^2+l^2}$$. We know that value of small angles in radians is nearly equal to their tangens. In our case we have $$\frac{h}{\sqrt(h^2+l^2)}\approx 0.01$$ which means that $$\tan (\delta/2)$$ is small for at least $$\alpha \leq 45^\circ$$. [[2]](#2) makes the assumption that in normal weather circumstances $$\alpha\approx 15^\circ$$. Taking that into account we can write: 
-
-<div id="mathdisplay">$$\begin{eqnarray}\delta \approx \frac{2h\tan\alpha}{\sqrt{h^2+l^2}}
-\end{eqnarray}$$</div>
+$$\begin{eqnarray} \delta \approx \frac{2h\tan\alpha}{\sqrt{h^2+l^2}}
+\end{eqnarray}$$
 
 And finally, the ratio of the perceived width and length, with assumed $$\alpha=15^\circ$$, is $$r=\frac{\delta}{\gamma}=h\tan\alpha/(\alpha\sqrt{h^2+l^2})=0.1018$$. For small $$\alpha$$ we have $$\tan\alpha \approx \alpha$$ so we can write $$r\approx\frac{h}{\sqrt(h^2+l^2)}=\sin \omega=0.0995$$. We see that for $$\alpha=15^\circ$$ the two calculations are quite close.
 
