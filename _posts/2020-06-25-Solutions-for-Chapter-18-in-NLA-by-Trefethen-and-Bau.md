@@ -71,9 +71,9 @@ If many variables are used, some of them may be highly correlated. For example, 
 
 Let us simplify the problem by assuming that at every point on the water surface we have ripples angled in all direction. Let $$\alpha$$ be the maximum angle at which the ripples curve. 
 
-The incoming light ray falls on a surface at some angle $\beta$ to the surface normal and reflects along a line that forms the same angle with the normal but on the other side of it in the plane made by the incoming ray and the normal. See figure below:
+The incoming light ray falls on a surface at some angle $\beta$ to the surface normal and reflects along a line that forms the same angle with the normal but on the other side of it in the plane made by the incoming ray and the normal. See [Figure 1.](#figure-1) below :
 
-
+<a id="figure-1">
 <p align="center">
   <img alt="Light reflection at the middle of the lake" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-1.png">
   <br>
@@ -81,21 +81,22 @@ The incoming light ray falls on a surface at some angle $\beta$ to the surface n
 </p>
 
 
-This means that a light ray from the house that falls in the middle of the lake on a piece of water with no ripples will reflect so it falls in the observers eyes, since both the light source and the observer are at the same height. However, if the reflecting surface is at some angle, then the distance between the light source and the reflecting surface needs to be adjusted for the light to reach the observer. This is depicted in Figure 2. below:
+This means that a light ray from the house that falls in the middle of the lake on a piece of water with no ripples will reflect so it falls in the observers eyes, since both the light source and the observer are at the same height. However, if the reflecting surface is at some angle, then the distance between the light source and the reflecting surface needs to be adjusted for the light to reach the observer. This is depicted in [Figure 2.](#figure-2) below:
 
+<a id="figure-2">
 <p align="center">
   <img alt="Light reflecting at an angle" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-2.png">
   <br>
     <em>Figure 2.</em>
 </p>
 
-We see from the Figure 2. that if the reflecting surface is angled with the sharper angle turned towards the light source then the reflection point needs to be closer to the light source than the observer if it is to reach the observer. The situation is reversed when the more oblique angle of the reflecting surface is turned to the light source. Also, as visible from the Figure 2. above, tilting the reflecting surface by $$\alpha$$ towards the observer and tilting it by $$\alpha$$ away from the observer results in two symmetrical cases.
+We see from the [Figure 2.](#figure-2) that if the reflecting surface is angled with the sharper angle turned towards the light source then the reflection point needs to be closer to the light source than the observer if it is to reach the observer. The situation is reversed when the more oblique angle of the reflecting surface is turned to the light source. Also, as visible from the [Figure 2.](#figure-2) above, tilting the reflecting surface by $$\alpha$$ towards the observer and tilting it by $$\alpha$$ away from the observer results in two symmetrical cases.
 
 Here we will calculate the ratio of width and length of the vertical streak as perceived by the observer and not the ratio of width and height as they are at the water surface at the points where the light we see is reflected.
 
 We are going to follow the assumption that the perceived dimension of the object is proportional to the angle the endpoints of the object subtend at the eye (See [here](https://entokey.com/the-human-eye-as-an-optical-system/) and [here](https://en.wikipedia.org/wiki/Visual_angle#The_retinal_image_and_visual_angle)). The perceived dimension of the object is $$n\cdot\gamma$$ where $$\gamma$$ is the subtended angle and $$n$$ is the distance from nodal points to the retina of the eye: something like the diameter of the eyeball. 
 
-What limits the length of the vertical streak is the maximum angle $$\alpha$$ at which the water ripples (see Figure 2.). We need to calculate the angle $$\gamma$$ from Figure 2. because that is the angle that is subtended at the eye of the observer for the length of the vertical streak of light:
+What limits the length of the vertical streak is the maximum angle $$\alpha$$ at which the water ripples (see [Figure 2.](#figure-2)). We need to calculate the angle $$\gamma$$ from [Figure 2.](#figure-2) because that is the angle that is subtended at the eye of the observer for the length of the vertical streak of light:
 
 
 $$\begin{eqnarray}
@@ -118,13 +119,14 @@ From \eqref{eq:gamma-2} we see that the angle subtended at the eye that encompas
 
 Width of the streak varies at different points. We will use the point in the middle of the lake for our calculations. The actual width on the lake in the middle is the biggest width the streak attains on the lake. However, according to [[2]](#2) that is not the point of the maximum perceived length. Nevertheless, that is the point they use to caculate the width and so will I, because the calculations are easy. Besides, the width of the streak varies anyways.
 
+<a id="figure-3">
 <p align="center">
   <img alt="Width of the streak at the middle of the lake" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/figure-3.png">
   <br>
     <em>Figure 3.</em>
 </p>
 
-In the middle of the lake, even at some point away from the plane $$SOT_2$$, the light ray has an equidistant path from the source to that point and from that point to the observer. The reflecting surface at the point must be inclined in order to account for the needed change in the direction of the travel. The reflecting surface is rotated around the axis that is parallel to the segment $$T_1T_2$$ (Figure 2.) and passes through the point of reflection. In the Figure 3. we show the inclination of the reflecting surface which is symmetric on the two sides and an observer (or light source) projected onto a plane perpendicular to $$T_1T_2$$ passing through point $$M$$ in the middle of the lake (see Figure 2. for point locations). The two sides of the depicted triangle $$P_1O'$$ and $$P_2O'$$ are positioned on the normals to the reflecting planes. $$P_1$$ and $$P_2$$ are points of the light reflection. From the image we see that the angles $$\angle P_1O'M=\angle MO'P_2=\alpha$$. Therefore the actual width of the streak on the lake is $$2 h\tan \alpha$$. 
+In the middle of the lake, even at some point away from the plane $$SOT_2$$, the light ray has an equidistant path from the source to that point and from that point to the observer. The reflecting surface at the point must be inclined in order to account for the needed change in the direction of the travel. The reflecting surface is rotated around the axis that is parallel to the segment $$T_1T_2$$ ([Figure 2.](#figure-2)) and passes through the point of reflection. In the [Figure 3.](#figure-3) we show the inclination of the reflecting surface which is symmetric on the two sides and an observer (or light source) projected onto a plane perpendicular to $$T_1T_2$$ passing through point $$M$$ in the middle of the lake (see [Figure 2.](#figure-2) for point locations). The two sides of the depicted triangle $$P_1O'$$ and $$P_2O'$$ are positioned on the normals to the reflecting planes. $$P_1$$ and $$P_2$$ are points of the light reflection. From the image we see that the angles $$\angle P_1O'M=\angle MO'P_2=\alpha$$. Therefore the actual width of the streak on the lake is $$2 h\tan \alpha$$. 
 
 The angle subtended at the eye for the width of the streak is $$\angle P_1OP_2=\delta$$. We know that the length $$\overline{MO}=\sqrt{h^2+l^2}$$ with $$h=50m$$ and $$2l=1000m$$. By using the calculated streak width we get $$\tan (\delta/2)=h \tan \alpha/\sqrt{h^2+l^2}$$. We know that value of small angles in radians is nearly equal to their tangens. In our case we have $$\frac{h}{\sqrt(h^2+l^2)}\approx 0.01$$ which means that $$\tan (\delta/2)$$ is small for at least $$\alpha \leq 45^\circ$$. [[2]](#2) makes the assumption that in normal weather circumstances $$\alpha\approx 15^\circ$$. Taking that into account we can write: 
 
@@ -133,7 +135,7 @@ The angle subtended at the eye for the width of the streak is $$\angle P_1OP_2=\
 
 And finally, the ratio of the perceived width and length, with assumed $$\alpha=15^\circ$$, is $$r=\frac{\delta}{\gamma}=h\tan\alpha/(\alpha\sqrt{h^2+l^2})=0.1018$$. For small $$\alpha$$ we have $$\tan\alpha \approx \alpha$$ so we can write $$r\approx\frac{h}{\sqrt(h^2+l^2)}=\sin \omega=0.0995$$. We see that for $$\alpha=15^\circ$$ the two calculations are quite close.
 
-(b) This problem is related to the way $$\|\delta y\|_2$$ behaves when we tilt the range of $$A$$ by a fixed $$\delta \alpha$$ in different planes/around different axes. When the range is tilted in the plane $$0-b-y$$, $$\|\delta y\|_2$$ attains its maximum. If the range is tilted in the plane passing through $$b$$ and $$y$$ that is perpendicular to segment $$0-y$$, $$\|\delta y\|_2$$ attains its minimum value that is smaller than its maximum by a factor of $$\sin \theta$$. Similarly, in this problem we get different values for the width and the length of the vertical streak with the maximum length achieved by tilting the reflecting surface in the plane $$SOT_2$$ i.e. around rotational axes perpendicular to that plane. If we tilt the reflecting plane around other axes at other points in the lake, the dimension of the streak shortens. We can see that particularly when we observe the width of the light streak in the middle of the lake as we did in part (a) of the problem. The approximate ratio of the width and the length has a similar formulation to the ratio of maximum and minimum $$\|\delta y\|_2$$ for a fixed $$\delta \alpha$$: $$\sin\omega$$ with $$\omega$$ in the case of this problem being the angle at the middle of the lake between the line connecting that point to the observer and the horizontal line passing through $$T_1$$ and $$T_2$$ in Figure 2.
+(b) This problem is related to the way $$\|\delta y\|_2$$ behaves when we tilt the range of $$A$$ by a fixed $$\delta \alpha$$ in different planes/around different axes. When the range is tilted in the plane $$0-b-y$$, $$\|\delta y\|_2$$ attains its maximum. If the range is tilted in the plane passing through $$b$$ and $$y$$ that is perpendicular to segment $$0-y$$, $$\|\delta y\|_2$$ attains its minimum value that is smaller than its maximum by a factor of $$\sin \theta$$. Similarly, in this problem we get different values for the width and the length of the vertical streak with the maximum length achieved by tilting the reflecting surface in the plane $$SOT_2$$ i.e. around rotational axes perpendicular to that plane. If we tilt the reflecting plane around other axes at other points in the lake, the dimension of the streak shortens. We can see that particularly when we observe the width of the light streak in the middle of the lake as we did in part (a) of the problem. The approximate ratio of the width and the length has a similar formulation to the ratio of maximum and minimum $$\|\delta y\|_2$$ for a fixed $$\delta \alpha$$: $$\sin\omega$$ with $$\omega$$ in the case of this problem being the angle $$\angle OMT_2$$, i.e. the angle between the line connecting the observer and the middle point of the lake on the plane perpendicular to the lake containing the observer and the source and the horizontal line on the lake passing through that plane.
 
 
 
