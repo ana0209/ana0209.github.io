@@ -118,8 +118,10 @@ Once transformation is calculated, a fitness score is obtained between the groun
 distance_map = get_distance_map(ground_truth_image)
 
 calculate_fitness_score(distance_map, transformed_boundary_points):
-    fitness_score = sum(distance_map[transformed_boundary_points[0,:], transformed_boundary_points[1,:]])
-    fitness_score /= size(transformed_boundary_points[0,:])
+    fitness_score = sum(distance_map[transformed_boundary_points[0,:], 
+        transformed_boundary_points[1,:]])
+    fitness_score /= 
+        size(transformed_boundary_points[0,:])
 
     return fitness_score
 ```
