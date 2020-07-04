@@ -15,7 +15,7 @@ c) Show that your algorithm involves six flops per entry operated on rather than
 
 **Solutions:**
 
-b) [Givens rotation](https://en.wikipedia.org/wiki/Givens_rotation) is a rotation in a plane spanned by two coordinate axes. In the problem, a $$2x2$$ example matrix is given for a Givens rotation of a 2-D vector. 
+b) [Givens rotation](https://en.wikipedia.org/wiki/Givens_rotation) is a rotation in a plane spanned by two coordinate axes. In the problem, a $$2 \times 2$$ example matrix is given for a Givens rotation of a 2-D vector. 
 
 $$\begin{eqnarray}J(\theta)=\begin{bmatrix}c&s\\-s&c\end{bmatrix},\; c=cos(\theta),\; s=sin(\theta)\end{eqnarray}$$
 
