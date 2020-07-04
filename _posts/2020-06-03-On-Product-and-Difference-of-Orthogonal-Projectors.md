@@ -20,20 +20,19 @@ Here I will just put the main theorems proven in the document. For the proofs [c
 
 *1. The singular values of $P_AP_B^\bot$ and $P_BP_A^\bot$ are the same.*
 
-*2. The nonzero singular values $\sigma_i$ of $P_AP_B^\bot$ correspond to pairs $\pm\sigma_i$ of eigenvalues of $P_B-P_A$, so that*
-
-$$\begin{equation}
-\large{\|P_B-P_A\|_2=\|P_AP_B^\bot\|_2=\|P_BP_A^\bot\|_2}
-\end{equation}$$
+*2. The nonzero singular values $\sigma_i$ of $P_AP_B^\bot$ correspond to pairs $\pm\sigma_i$ of eigenvalues of $P_B-P_A$, so that:*
+$$\begin{eqnarray}
+\nonumber \\
+\|P_B-P_A\|_2=\|P_AP_B^\bot\|_2=\|P_BP_A^\bot\|_2
+\end{eqnarray}$$
 
 
 
 **Theorem 2.** *(Theorem 2.3, part 2 in [[1]](#1))*
 *For any two matrices $A_{m \times n}$ and $B_{m \times l}$ and two orthogonal projectors $P_A$ and $P_B$ onto the ranges of $A$ and $B$ respectively we have:*
-
-$$\begin{equation}
-   \large{\|P_B-P_A\|_2<1\Rightarrow rank(A)=rank(B)}
-\end{equation}$$
+$$\begin{eqnarray}
+\|P_B-P_A\|_2<1\Rightarrow rank(A)=rank(B)
+\end{eqnarray}$$
 
 
 **Lemma 1.** *(Lemma 7.1 in [[2]](#2))*
