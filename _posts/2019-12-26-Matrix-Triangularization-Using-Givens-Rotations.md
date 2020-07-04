@@ -16,13 +16,10 @@ c) Show that your algorithm involves six flops per entry operated on rather than
 **Solutions:**
 
 b) [Givens rotation](https://en.wikipedia.org/wiki/Givens_rotation) is a rotation in a plane spanned by two coordinate axes. In the problem, a $$2x2$$ example matrix is given for a Givens rotation of a 2-D vector. 
-
-
-$$ \begin{align}J(\theta)=\begin{bmatrix}c & s\\\ -s & c\end{bmatrix} && c=cos(\theta) && s=sin(\theta)\end{align} $$
+$$\begin{eqnarray}J(\theta)=\begin{bmatrix}c&s\\-s&c\end{bmatrix},\; c=cos(\theta),\; s=sin(\theta)\end{eqnarray}$$
 
 Analogous, general Givens rotation for rotating an $$n$$-dimensional vector is:
-
-$$ \begin{equation}G(i,j,\theta)=\begin{bmatrix}1 & \cdots & 0 & \cdots & 0 & \cdots & 0\\\ \vdots & \ddots & \vdots & & \vdots & & \vdots \\\ 0 & \cdots & c & \cdots & s & \cdots & 0 \\\ \vdots & & \vdots & \ddots & \vdots & & \vdots \\\ 0 & \cdots & -s & \cdots & c & \cdots & 0 \\\ \vdots & & \vdots & & \vdots & \ddots & \vdots \\\ 0 & \cdots & 0 & \cdots & 0 & \cdots & 1\end{bmatrix} \end{equation}$$
+$$\begin{eqnarray}\nonumber\\G(i,j,\theta)=\begin{bmatrix}1 & \cdots & 0 & \cdots & 0 & \cdots & 0\\\ \vdots & \ddots & \vdots & & \vdots & & \vdots \\\ 0 & \cdots & c & \cdots & s & \cdots & 0 \\\ \vdots & & \vdots & \ddots & \vdots & & \vdots \\\ 0 & \cdots & -s & \cdots & c & \cdots & 0 \\\ \vdots & & \vdots & & \vdots & \ddots & \vdots \\\ 0 & \cdots & 0 & \cdots & 0 & \cdots & 1\end{bmatrix} \end{eqnarray}$$
 
 where $$c=cos(\theta)$$ and $$s=sin(\theta)$$ appear at the intersections of $i$th and $$j$$th rows and columns.
 

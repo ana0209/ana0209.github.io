@@ -31,6 +31,7 @@ $$\begin{eqnarray}
 **Theorem 2.** *(Theorem 2.3, part 2 in [[1]](#1))*
 *For any two matrices $A_{m \times n}$ and $B_{m \times l}$ and two orthogonal projectors $P_A$ and $P_B$ onto the ranges of $A$ and $B$ respectively we have:*
 $$\begin{eqnarray}
+\nonumber \\
 \|P_B-P_A\|_2<1\Rightarrow rank(A)=rank(B)
 \end{eqnarray}$$
 
