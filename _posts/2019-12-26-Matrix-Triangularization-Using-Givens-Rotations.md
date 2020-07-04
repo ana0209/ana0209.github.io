@@ -16,10 +16,12 @@ c) Show that your algorithm involves six flops per entry operated on rather than
 **Solutions:**
 
 b) [Givens rotation](https://en.wikipedia.org/wiki/Givens_rotation) is a rotation in a plane spanned by two coordinate axes. In the problem, a $$2x2$$ example matrix is given for a Givens rotation of a 2-D vector. 
+
 $$\begin{eqnarray}J(\theta)=\begin{bmatrix}c&s\\-s&c\end{bmatrix},\; c=cos(\theta),\; s=sin(\theta)\end{eqnarray}$$
 
 Analogous, general Givens rotation for rotating an $$n$$-dimensional vector is:
-$$\begin{eqnarray}\nonumber\\G(i,j,\theta)=\begin{bmatrix}1 & \cdots & 0 & \cdots & 0 & \cdots & 0\\\ \vdots & \ddots & \vdots & & \vdots & & \vdots \\\ 0 & \cdots & c & \cdots & s & \cdots & 0 \\\ \vdots & & \vdots & \ddots & \vdots & & \vdots \\\ 0 & \cdots & -s & \cdots & c & \cdots & 0 \\\ \vdots & & \vdots & & \vdots & \ddots & \vdots \\\ 0 & \cdots & 0 & \cdots & 0 & \cdots & 1\end{bmatrix} \end{eqnarray}$$
+
+$$\begin{eqnarray}G(i,j,\theta)=\begin{bmatrix}1 & \cdots & 0 & \cdots & 0 & \cdots & 0\\\ \vdots & \ddots & \vdots & & \vdots & & \vdots \\\ 0 & \cdots & c & \cdots & s & \cdots & 0 \\\ \vdots & & \vdots & \ddots & \vdots & & \vdots \\\ 0 & \cdots & -s & \cdots & c & \cdots & 0 \\\ \vdots & & \vdots & & \vdots & \ddots & \vdots \\\ 0 & \cdots & 0 & \cdots & 0 & \cdots & 1\end{bmatrix} \end{eqnarray}$$
 
 where $$c=cos(\theta)$$ and $$s=sin(\theta)$$ appear at the intersections of $i$th and $$j$$th rows and columns.
 
@@ -31,7 +33,19 @@ A Givens rotation rotates a vector in a 2-D plane. We can see it as rotating the
 
 I illustrate this with an example of a 3-D x vector. First, vector is rotated in the plane spanned by axes $$1$$ and $$2$$. This can be seen as rotating the component of the vector that is in that plane by the angle $$\theta$$ between the component and the axis $$1$$. The component of the vector in the plane is shown as a blue vector in Figure 1b). The rotated component is shown in green and the resulting vector obtained by rotating $$x$$ by $$\theta$$ in the said plane is shown in red in Figure 1b). In the next step $$x_{\theta}$$ is rotated in the plane spanned by axes $$1$$ and $$3$$ by the angle $$\gamma$$ between $$x_{\theta}$$ and axis $$1$$. Finally we obtain the vector $$x_{\theta\gamma}$$ with the same norm as vector $$x$$ parallel with axis $$1$$ (Figure 1c)).
 
-![figure-1](https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/Rotation-figure.png)
+
+
+<a id="figure-1">
+<p align="center">
+  <img alt="x-vector" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/Givens-Rotation/figure-1a.png">
+    <em>a)</em>
+    <img alt="First rotation" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/Givens-Rotation/figure-1b.png">
+    <em>b)</em>
+  <img alt="Second rotation" src="https://raw.githubusercontent.com/ana0209/ana0209.github.io/master/images/Givens-Rotation/figure-1c.png">
+    <em>c)</em>
+    <br>
+    <em>Figure 1.</em>
+</p>
 
 I have written up the algorithm in Matlab. I give 2 possible implementations. The first one uses Givens rotation matrices explicitly. The second one extracts only the multiplications and sums with non zero matrix elements. The second implementation makes it clear that 6 flops are used per matrix entry as opposed to 4 used by algorithm 10.1. in Numerical Linear Algebra book.
 
