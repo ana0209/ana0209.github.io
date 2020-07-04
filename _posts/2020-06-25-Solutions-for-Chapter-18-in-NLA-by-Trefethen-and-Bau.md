@@ -48,8 +48,8 @@ $$\begin{eqnarray}
 
 And the final perturbation of $$A$$ is $$\delta A=\delta p v_2$$ where $v_2$ is obtained as the second column of $V$ from $A=U \Sigma V^*$.
 
-The error obtained using this perturbation was $err_{A \rightarrow y}=34639.57287$. The difference between $err_{A \rightarrow y}$ and $\kappa_{A \rightarrow y}$ can be explained by the relationship between $$y=[2 \; 2.0001 \; 2.0001]'$$ and the second left singular vector $$u_2$$. Let us look at the left singular vectors of $A$ in $U$:
-$$\begin{eqnarray}U=\begin{bmatrix}-5.77e-01 & 8.17e-01 & -8.76e-17 \\ -5.77e-01 & -4.08e-01 & -7.07e-01 \\ -5.77e-01 & -4.08e-01 & 7.07e-01 \end{bmatrix}\end{eqnarray}$$
+The error obtained using this perturbation was $err_{A \rightarrow y}=34639.57287$. The difference between $err_{A \rightarrow y}$ and $\kappa_{A \rightarrow y}$ can be explained by the relationship between $$y=[2 \; 2.0001 \; 2.0001]'$$ and the second left singular vector $$u_2$$. Let us look at the two left singular vectors of $A$ that are associated with non-zero singular values:
+$$\begin{eqnarray}u_1=\begin{bmatrix}-5.77e-01 \\ -5.77e-01 \\ -5.77e-01\end{bmatrix} \quad u_2= \begin{bmatrix}8.17e-01 \\ -4.08e-01 \\ -4.08e-01\end{bmatrix}\end{eqnarray}$$
 
 We see that $y$ is approximately aligned with the first left singular vector. This means it is roughly perpendicular to the plane in which the tilt for the described perturbation is made. As explained in [[1]](#1) this reduces the error by a factor of $\sin \theta$. Indeed we get $$err_{A \rightarrow y} / \sin \theta = 54771.06913$$ which is very close to $$\kappa_{A \rightarrow y}$$.
 
