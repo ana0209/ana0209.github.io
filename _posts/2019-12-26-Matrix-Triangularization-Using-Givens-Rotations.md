@@ -51,8 +51,8 @@ I have written up the algorithm in Matlab. I give 2 possible implementations. Th
 
 
 ```
-function R = houseGivens1(A)
-% Using Givens rotation for Householder triangularization
+function R = givens1(A)
+% Using Givens rotation for matrix triangularization
 % Exercise 10.4b) from Numerical Linear Algebra by Trefethen 
 
 [m,n] = size(A);
@@ -83,8 +83,8 @@ A Givens rotation has two non-identity rows each with two non-zero entries. When
 
 
 ```
-function R = houseGivens2(A)
-% Using Givens rotation for Householder triangularization
+function R = givens2(A)
+% Using Givens rotation for matrix triangularization
 % Exercise 10.4b) from Numerical Linear Algebra by Trefethen 
 
 [m,n] = size(A);
