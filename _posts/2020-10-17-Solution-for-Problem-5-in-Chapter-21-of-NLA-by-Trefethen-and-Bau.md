@@ -49,6 +49,7 @@ for i=1:m-2
 
     %symmetric swap on a triangular matrix
     D=symmetricRowAndColumnSwap(D,i+1,r) 
+
     L(i+2:m,i+1)=D(i+2:m,i)/D(i+1,i)
 
     % eliminating the i-th column
@@ -57,7 +58,7 @@ for i=1:m-2
         D(j,i+1:j)=D(j,i+1:j)-D(i+1:j,i+1)'*Li(j,i+1)
     endfor
 
-    % changes due to elimination of the i-th row
+    % changes due to the elimination of the i-th row
     for j=i+2:m
         D(j:m,j)=D(j:m,j)-Li(j,i+1)*D(j:m,i+1)
     endfor
@@ -74,7 +75,7 @@ It takes $\approx 2/3m^3$ flops to execute the algorithm as it is done in the ps
 
 The implementation of the faster, column by column by column update is [here](https://gist.github.com/ana0209/e655c111c694aeaf2ec315b79be0a78a).
 
-This version takes advantage of the fact that at each step $i$ we have all the information we need to update the column $i+1$ in the triangular matrix. Below you can find the explanation of this faster method. For the sake of clarity,  I skip the permutations in the explanation and focus on the column update.
+This version takes advantage of the fact that at each step $i$ we have all the information we need to update the column $i+1$ in the reduced matrix. Below you can find the explanation of this faster method. For the sake of clarity,  I skip the permutations in the explanation and focus on the column update.
 
 After performing the algorithm for $i$ steps we know matrices $L_i$ that do elimination at each step. 
 
@@ -84,7 +85,7 @@ $$\begin{eqnarray}L^{(i)}_{m \times m}=L_1^{-1} \cdots L_i^{-1} =\begin{pmatrix}
 
 with $L_{22}^{(i)}= \begin{pmatrix} l_{i+1} & 0 \end{pmatrix}_{(m-i) \times (m-i)}$
 
-$L^{(i)}$ is the decomposition matrix after step $i$. $l_{i+1}$ is a column vector of dimension $(m-i) \times 1$. $L_{11; (i \times i)}$ is a lower unit triangular matrix and $L_{21; (m-i) \times i}$ is a rectangular matrix with potentially all non zero entries (except for the off-diagonal entries in the first column).
+$L^{(i)}$ is the decomposition matrix after step $i$. $l_{i+1}$ is a column vector of dimension $(m-i) \times 1$. $L_{11; (i \times i)}$ is a lower unit triangular matrix and $L_{21; (m-i) \times i}$ is a rectangular matrix with potentially all non zero entries (except for the entries in the first column).
 
 We can factor A and $D^{(i)}$ in a similar manner:
 $$\begin{eqnarray}A=\begin{pmatrix} A_{11(i \times i)} & A_{21(i \times m-i)}^T \\ A_{21(m-i \times i)} & A_{22(m-i \times m-i)}  \end{pmatrix}\end{eqnarray}$$
@@ -101,7 +102,7 @@ $$\begin{eqnarray}A_{22}=L_{21}D_{11}L_{21}^T + L_{22}^{(i)}D_{21}L_{21}^T + L_{
 and
 $$\begin{eqnarray}L_{22}^{(i)}D_{22}^{(i)}L_{22}^{(i)T} = A_{22}-L_{21}D_{11}L_{21}^T - L_{22}^{(i)}D_{21}L_{21}^T - L_{21}D_{21}^TL_{22}^{(i)T}\end{eqnarray}$$
 
-From the equation above we can get the first column of $L_{22}^{(i)}D_{22}^{(i)}L_{22}^{(i)T}$. What we really want is the first column of $D_{22}^{(i)}$. Luckily we have the information we need to calculate that column. $L_{22}^{(i)}$ has only one column with non-zero off-diagonal entries, its first column. This happens to be the non-zero part of the $(i+1)$-st column of $L_i^{-1}$, the inverse of the reduction matrix used to create zeros in the $i$-th column of the reduced matrix at step $i$. We can use this to get the first column of $D_{22}^{(i)}$ which is all we need to construct $L_{i+1}$ and continue the above described column by column process.
+From the equation above we can get the first column of $L_{22}^{(i)}D_{22}^{(i)}L_{22}^{(i)T}$. What we really want is the first column of $D_{22}^{(i)}$. Luckily we have the information we need to calculate it. $L_{22}^{(i)}$ has only one column with non-zero off-diagonal entries, its first column. This happens to be the non-zero part of the $(i+1)$-st column of $L_i^{-1}$, the inverse of the matrix used to create zeros in the $i$-th column of the reduced matrix at step $i$. We can use this to get the first column of $D_{22}^{(i)}$ which is all we need to construct $L_{i+1}$ and continue the above described column by column process.
 
 For exact operations, here is the code snippet that does the column update at step $i$:
 
@@ -134,11 +135,11 @@ The column based update from [Aasen](https://link.springer.com/article/10.1007/B
 
 We only need the first column of $L_{21}T_{11}L_{21}^T$ which is equal to $L_{21}v$. Calculating this column takes $\approx 2i(m-i)$ flops.
 
-We also need the first columns of $L_{22}^{(i)}D_{21}L_{21}^T$ and $L_{21}D_{21}^TL_{22}^{(i)T}$. Since $D_{21}$ only has one non-zero entry calculating each of these columns takes $\approx 2(m-i)$ flops.
+We also need the first columns of $L_{22}^{(i)}D_{21}L_{21}^T$ and $L_{21}D_{21}^TL_{22}^{(i)T}$. Since $D_{21}$ only has one non-zero entry calculating each of these columns takes $2(m-i)$ flops.
 
 To this we need to add the subtractions of the $3$ elements from the first column of $A_{22}$ which comes to $\approx{3(m-i)}$ flops and the operations required to get the first column of $D_{22}$ from $L_{22}^{(i)}D_{22}^{(i)}$. This takes $\approx 2(m-i)$ operations.
 
-There are $m-1$ steps and all the sums of the other factors except for $L_{21}v$ are of order $m^2$. So the number of flops is dominated by the sum for the term $2i(m-i)$:
+There are $m-1$ steps and all the sums of the factors with exception of $L_{21}v$ are of order $m^2$. Hence, the number of flops is dominated by the sum for the term $2i(m-i)$:
 $$\begin{eqnarray}\sum_{i=1}^{m-1}2i(m-i)=2m\sum_{i=1}^{m-1}i - 2\sum_{i=1}^{m-1}i^2 = m^3/3-m/3 \approx m^3/3\end{eqnarray}$$
 
 From this we see that the number of flops for the column by column elimination is around $m^3/3$.
