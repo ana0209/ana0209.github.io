@@ -137,7 +137,7 @@ We only need the first column of $L_{21}T_{11}L_{21}^T$ which is equal to $L_{21
 
 We also need the first columns of $L_{22}^{(i)}D_{21}L_{21}^T$ and $L_{21}D_{21}^TL_{22}^{(i)T}$. Since $D_{21}$ only has one non-zero entry calculating each of these columns takes $2(m-i)$ flops.
 
-To this we need to add the subtractions of the $3$ elements from the first column of $A_{22}$ which comes to $\approx{3(m-i)}$ flops and the operations required to get the first column of $D_{22}$ from $L_{22}^{(i)}D_{22}^{(i)}$. This takes $\approx 2(m-i)$ operations.
+To this we need to add the subtractions of the $3$ elements from the first column of $A_{22}$ which comes to $\approx{3(m-i)}$ flops and the operations required to get the first column of $D_{22}$ from $L_{22}^{(i)}D_{22}^{(i)}$. This takes $2(m-i-1)$ operations.
 
 There are $m-1$ steps and all the sums of the factors with exception of $L_{21}v$ are of order $m^2$. Hence, the number of flops is dominated by the sum for the term $2i(m-i)$:
 $$\begin{eqnarray}\sum_{i=1}^{m-1}2i(m-i)=2m\sum_{i=1}^{m-1}i - 2\sum_{i=1}^{m-1}i^2 = m^3/3-m/3 \approx m^3/3\end{eqnarray}$$
