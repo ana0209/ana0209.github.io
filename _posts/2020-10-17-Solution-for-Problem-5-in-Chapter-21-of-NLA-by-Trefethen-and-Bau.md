@@ -17,7 +17,7 @@ By using symmetric pivoting, one can only interchange the position of diagonal e
 Let’s say we have: 
 $$\begin{eqnarray} A=\begin{pmatrix}1 & 2  & 3 & 4 \\ 2 & 3 & 5 & 6 \\ 3 & 5 & 4 & 9 \\ 4 & 6 & 9 & 7\end{pmatrix}\end{eqnarray}$$ 
 
-The largest off diagonal element of matrix $A$ is $A(4,1)=4$. In the first step $A(4,1)$ is pivoted to position $(2,1)$ by using a permutation matrix: $$\begin{eqnarray}P_1AP_1=\begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix} \begin{pmatrix}1 & 2  & 3 & 4 \\ 2 & 3 & 5 & 6 \\ 3 & 5 & 4 & 9 \\ 4 & 6 & 9 & 7\end{pmatrix}\begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix} =\begin{pmatrix}1 & 4 & 3 & 2\\4 & 7 & 9 & 6\\3 & 9 & 4 & 5\\2 & 6 & 5 & 3\end{pmatrix}\end{eqnarray}$$
+The largest off diagonal element in the first column of matrix $A$ is $A(4,1)=4$. In the first step $A(4,1)$ is pivoted to position $(2,1)$ by using a permutation matrix: $$\begin{eqnarray}P_1AP_1=\begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix} \begin{pmatrix}1 & 2  & 3 & 4 \\ 2 & 3 & 5 & 6 \\ 3 & 5 & 4 & 9 \\ 4 & 6 & 9 & 7\end{pmatrix}\begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix} =\begin{pmatrix}1 & 4 & 3 & 2\\4 & 7 & 9 & 6\\3 & 9 & 4 & 5\\2 & 6 & 5 & 3\end{pmatrix}\end{eqnarray}$$
 
 Now we can construct matrix $L_1$: $$\begin{eqnarray}L_1=\begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & -3/4 & 1 & 0 \\ 0 & -1/2 & 0 & 1\end{pmatrix}\end{eqnarray}$$
 that can be used to set entries $(3,1)$ and $(4,1)$ of $P_1AP_1$ to $0$:
