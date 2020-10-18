@@ -17,14 +17,14 @@ I do not provide solutions for parts (a) and (b). I have calculated answers (c)-
 
 * $\mu=1.0$
 
-(d) These condition numbers are obtained by using formulas from Theorem 18.1.:
+(d) These condition numbers and upper bounds are obtained by using formulas from Theorem 18.1.:
 * $\kappa_{b \rightarrow y}=1.2910$
 
 * $\kappa_{b \rightarrow x}=54775.17704$
 
-* $\kappa_{A \rightarrow y}=54775.17707$
+* $\kappa_{A \rightarrow y} \leq 54775.17707$
 
-* $\kappa_{A \rightarrow x}=1469883252.86400$
+* $\kappa_{A \rightarrow x} \leq 1469883252.86400$
 
 (e) The perturbation $\delta b$ that causes the relative error of $$y$$ to be equal to $\kappa_{b \rightarrow y}$ is any perturbation in the range of $A$. We can get such perturbation by multiplying any vector $$v$$ that is not orthogonal to the $$range(A)$$ by a projector into the range of $A$: $\delta b=AA^+v$. I used $\delta b=AA^+[1 \; 1 \; 1]\'$ and got relative error $err_{b\rightarrow y}=1.2910$.  You can find the code for this as for any subsequent calculations for problem 18.1. in this [script](https://gist.github.com/ana0209/e05eb0907ac27bdb72507420279b1b34).
  
