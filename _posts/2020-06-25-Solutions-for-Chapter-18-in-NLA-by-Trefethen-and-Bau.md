@@ -39,7 +39,7 @@ Above we use the fact that $$\| \cdot \|_2$$ norm is unitarily invariant (the no
 
 When using the above described $$\delta b$$, I obtained relative error $$err_{b \rightarrow x}=54775.17704$$.
 
-While the previous two errors achieved the condition number exactly, the following two will do so only approximately.
+While the previous two errors achieved the condition number exactly, the following will not reach the upper bound given in (d), but will come close to it instead.
 
 $$y$$ only depends on the $range(A)$. From [[1]](#1), *Tilting the range section* we see that the biggest tilt of the $range(A)$ for some fixed value of $$\|\delta A\|_2$$ is achieved when $$\delta A=\delta p \cdot v_n$$ where $v_n$ is the right singular vector of $A$ associated with its smallest singular value $\sigma_n$ which in the case of this problem is $\sigma_2$. $\delta p$ is a vector orthogonal to the range of $A$. I calculated $\delta p$ as:
 $$\begin{eqnarray}
@@ -49,14 +49,14 @@ $$\begin{eqnarray}
 
 And the final perturbation of $$A$$ is $$\delta A=\delta p v_2$$ where $v_2$ is obtained as the second column of $V$ from $A=U \Sigma V^*$.
 
-The error obtained using this perturbation was $err_{A \rightarrow y}=34639.57287$. The difference between $err_{A \rightarrow y}$ and $\kappa_{A \rightarrow y}$ can be explained by the relationship between $$y=[2 \; 2.0001 \; 2.0001]'$$ and the second left singular vector $$u_2$$. Let us look at the two left singular vectors of $A$ that are associated with non-zero singular values:
+The error obtained using this perturbation was $err_{A \rightarrow y}=34639.57287$. The difference between $err_{A \rightarrow y}$ and the uppder bound for $\kappa_{A \rightarrow y}$ can be explained by the relationship between $$y=[2 \; 2.0001 \; 2.0001]'$$ and the second left singular vector $$u_2$$. Let us look at the two left singular vectors of $A$ that are associated with non-zero singular values:
 $$\begin{eqnarray}u_1=\begin{bmatrix}-5.77e-01 \\ -5.77e-01 \\ -5.77e-01\end{bmatrix} \\ \nonumber \\ u_2= \begin{bmatrix}8.17e-01 \\ -4.08e-01 \\ -4.08e-01\end{bmatrix}\end{eqnarray}$$
 
-We see that $y$ is approximately aligned with the first left singular vector. This means it is roughly perpendicular to the plane in which the tilt for the described perturbation is made. As explained in [[1]](#1) this reduces the error by a factor of $\sin \theta$. Indeed we get $$err_{A \rightarrow y} / \sin \theta = 54771.06913$$ which is very close to $$\kappa_{A \rightarrow y}$$.
+We see that $y$ is approximately aligned with the first left singular vector. This means it is roughly perpendicular to the plane in which the tilt for the described perturbation is made. As explained in [[1]](#1) this reduces the error by a factor of $\sin \theta$. Indeed we get $$err_{A \rightarrow y} / \sin \theta = 54771.06913$$ which is very close to the upper bound we obtained for $$\kappa_{A \rightarrow y}$$.
 
-You might ask why not tilt the range in the plane that contains the origin and the points $b$ and $y$ as was done in the section *Sensitivity of y to Perturbations in A* of [[1]](#1). The answer is that due to big difference between $\sigma_1$ and $\sigma_2$, the angle of the tilt of the range while keeping the same $$\|\delta A\|_2$$ is much smaller resulting in an error that is significantly less than both the above calculated $$err_{A \rightarrow y}$$ and $$\kappa_{A \rightarrow y}$$.
+You might ask why not tilt the range in the plane that contains the origin and the points $b$ and $y$ as was done in the section *Sensitivity of y to Perturbations in A* of [[1]](#1). The answer is that due to big difference between $\sigma_1$ and $\sigma_2$, the angle of the tilt of the range while keeping the same $$\|\delta A\|_2$$ is much smaller resulting in an error that is significantly less than both the above calculated $$err_{A \rightarrow y}$$ and upper bound for $$\kappa_{A \rightarrow y}$$.
 
-The final error $$err_{A \rightarrow x}$$ has two terms, one that depends on changes of $A$ that do not alter its range and the other term that is affected by tilting of the range of $A$. The first term is $\kappa(A)$ and the second $$\kappa(A)^2\tan\theta/\mu$$. In our example $\mu=1.0$ so the overall error is much more affected by tilting the range than the changes in the mapping of points within the range, since that term contains the quadratic factor $\kappa(A)^2$. Therefore I picked the same perturbation as for $$err_{A \rightarrow y}$$ since that is the perturbation that causes the largest tilt of the range of $$A$$ for a given $$\|\delta A\|_2$$. Thus obtained relative error is $$err_{A \rightarrow x}=1469620366.28139=0.9982 \cdot \kappa_{A \rightarrow x}$$.
+The bound for the final error $$err_{A \rightarrow x}$$ has two terms, one that depends on changes of $A$ that do not alter its range and the other term that is affected by tilting of the range of $A$. The first term is $\kappa(A)$ and the second $$\kappa(A)^2\tan\theta/\mu$$. In our example $\mu=1.0$ so the overall error is much more affected by tilting the range than the changes in the mapping of points within the range, since that term contains the quadratic factor $\kappa(A)^2$. Therefore I picked the same perturbation as for $$err_{A \rightarrow y}$$ since that is the perturbation that causes the largest tilt of the range of $$A$$ for a given $$\|\delta A\|_2$$. Thus obtained relative error is $$err_{A \rightarrow x}=1469620366.28139=0.9982 \cdot \text{upper_bound}(\kappa_{A \rightarrow x})$$.
 
 ### Exercise 18.2.
 
