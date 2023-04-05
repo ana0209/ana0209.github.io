@@ -4,6 +4,7 @@ title: "Am I Close Geolocated Reminder App"
 date: 2021-11-02
 ---
 
+Disclaimer: Several iOS updates later and this app is no longer working as intended. I have not had the time to update it, but if you are interested in any aspect of it, do send me an email with your questions.
 
 ## Introduction
 
